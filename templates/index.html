@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Search</title>
+  <link rel="stylesheet" href="/static/CSS/style.css">
+  <meta name="description"
+    content="A Pokémon search interface with filters for generation, type, stats, and more. pretty cool right?">
+</head>
+
+<body>
+
+  <audio id="bg-music" src="/static/audio/Pokemon RubySapphireEmerald- Littleroot Town.mp3" loop></audio>
+
+  <button id="audio-btn">
+    <img id="audio-icon" src="/static/image/closed100.png" alt="Audio" width="160" height="75">
+  </button>
+
+
+  <div class="header">
+    <div class="icon">
+      <img src="https://img.pokemondb.net/sprites/black-white/normal/darmanitan-zen.png" alt="Darmanitan">
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="content">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <div class="filter-section">
+        <h3>Generation</h3>
+        <label><input type="checkbox" class="gen-checkbox" id="gen1" value="1"> Gen 1</label>
+        <label><input type="checkbox" class="gen-checkbox" id="gen2" value="2"> Gen 2</label>
+        <label><input type="checkbox" class="gen-checkbox" id="gen3" value="3"> Gen 3</label>
+        <label><input type="checkbox" class="gen-checkbox" id="gen4" value="4"> Gen 4</label>
+        <label><input type="checkbox" class="gen-checkbox" id="gen5" value="5"> Gen 5</label>
+        <label><input type="checkbox" class="gen-checkbox" id="gen6" value="6"> Gen 6</label>
+        <label><input type="checkbox" class="gen-checkbox" id="gen7" value="7"> Gen 7</label>
+        <label><input type="checkbox" class="gen-checkbox" id="gen8" value="8"> Gen 8</label>
+        <label><input type="checkbox" class="gen-checkbox" id="gen9" value="9"> Gen 9</label>
+      </div>
+
+      <div class="filter-section">
+        <h3>Type</h3>
+        <label><input type="checkbox" class="type-checkbox" value='fire'> Fire</label>
+        <label><input type="checkbox" class="type-checkbox" value='water'> Water</label>
+        <label><input type="checkbox" class="type-checkbox" value='dark'> Dark</label>
+        <label><input type="checkbox" class="type-checkbox" value='dragon'> Dragon</label>
+        <label><input type="checkbox" class="type-checkbox" value='electric'> Electric</label>
+        <label><input type="checkbox" class="type-checkbox" value='fairy'> Fairy</label>
+        <label><input type="checkbox" class="type-checkbox" value='fighting'> Fighting</label>
+        <label><input type="checkbox" class="type-checkbox" value='flying'> Flying</label>
+        <label><input type="checkbox" class="type-checkbox" value='ghost'> Ghost</label>
+        <label><input type="checkbox" class="type-checkbox" value='grass'> Grass</label>
+        <label><input type="checkbox" class="type-checkbox" value='bug'> Bug</label>
+        <label><input type="checkbox" class="type-checkbox" value='ground'> Ground</label>
+        <label><input type="checkbox" class="type-checkbox" value='ice'> Ice</label>
+        <label><input type="checkbox" class="type-checkbox" value='normal'> Normal</label>
+        <label><input type="checkbox" class="type-checkbox" value='poison'> Poison</label>
+        <label><input type="checkbox" class="type-checkbox" value='psychic'> Psychic</label>
+        <label><input type="checkbox" class="type-checkbox" value='rock'> Rock</label>
+        <label><input type="checkbox" class="type-checkbox" value='steel'> Steel</label>
+        <div>
+          <label>
+            <input type="radio" name="mode" value="any" checked>
+            Match ANY (OR)
+          </label>
+
+          <label>
+            <input type="radio" name="mode" value="all">
+            Match ALL (AND)
+          </label>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <h3>Special</h3>
+        <label>
+          <input type="checkbox" name="pokemon-category" value="is_legendary"> Legendary
+        </label>
+
+        <label>
+          <input type="checkbox" name="pokemon-category" value="is_sub_legendary"> Sub Legendary Pokémon
+        </label>
+
+        <label>
+          <input type="checkbox" name="pokemon-category" value="is_mythical"> Mythical
+        </label>
+
+        <label>
+          <input type="checkbox" name="pokemon-category" value="is_ultra_beast"> Ultra Beasts
+        </label>
+
+        <label>
+          <input type="checkbox" name="pokemon-category" value="is_paradox"> Paradox Pokémon
+        </label>
+      </div>
+
+      <div class="filter-section">
+        <h3>HP: <span id="hp-val">0</span></h3>
+        <input type="range" id="hp" min="0" max="255" value="0">
+
+        <h3>Attack: <span id="attack-val">0</span></h3>
+        <input type="range" id="attack" min="0" max="255" value="0">
+
+        <h3>Defense: <span id="defense-val">0</span></h3>
+        <input type="range" id="defense" min="0" max="255" value="0">
+
+        <h3>Sp. Attack: <span id="sattack-val">0</span></h3>
+        <input type="range" id="sattack" min="0" max="255" value="0">
+
+        <h3>Sp. Defense: <span id="sdefense-val">0</span></h3>
+        <input type="range" id="sdefense" min="0" max="255" value="0">
+
+        <h3>Speed: <span id="speed-val">0</span></h3>
+        <input type="range" id="speed" min="0" max="255" value="0">
+
+        <h3>Weight: <span id="weight-val">0</span></h3>
+        <input type="range" id="weight" min="0" max="9999" value="0">
+
+        <h3>Height: <span id="height-val">0</span></h3>
+        <input type="range" id="height" min="0" max="200" value="0">
+      </div>
+
+      <div class="filter-section">
+        <h3>Ability</h3>
+        <input type="text" id = 'abilitySearchBar' class = 'left-search' placeholder="Search ability...">
+      </div>
+
+      <div class="filter-section">
+        <h3>Move</h3>
+        <input type="text" id = 'moveSearchBar' class = 'left-search' placeholder="Search move...">
+      </div>
+
+    </div>
+
+    
+    <div class="main">
+      <input type="text" id='searchBar' class="search-bar" placeholder="Search Pokémon or id...">
+      <div class="grid" id='grid'>
+      </div>
+    </div>
+
+    <footer>
+
+    </footer>
+
+  </div>
+
+  </div>
+  <script src='/JS/index.JS'></script>
+  <script>
+    const audio = document.getElementById("bg-music");
+    const btn = document.getElementById("audio-btn");
+    const icon = document.getElementById("audio-icon");
+
+    audio.volume = 0.1;
+    let isPlaying = false;
+
+    const iconClosed = "/static/image/closed200px.png";
+    const iconOpen = "/static/image/open200px.png";
+
+    btn.addEventListener("click", () => {
+      if (isPlaying) {
+        audio.pause();
+        icon.src = iconClosed;
+      } else {
+        audio.play();
+        icon.src = iconOpen;
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+
+</body>
+
+</html>
