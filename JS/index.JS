@@ -142,7 +142,7 @@ async function fetchData() {
         grid.innerHTML = "";
 
         const response = await fetch(
-            `http://127.0.0.1:5000/api/pokemon?${params}`
+            `/api/pokemon?${params}`
         );
 
         if (!response.ok) throw new Error("Pokémon not found");
