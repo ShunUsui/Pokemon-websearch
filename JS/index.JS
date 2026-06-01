@@ -181,3 +181,7 @@ async function fetchData() {
         console.error(error);
     }
 } 
+
+window.addEventListener("DOMContentLoaded", () => {
+    fetchData();
+});
